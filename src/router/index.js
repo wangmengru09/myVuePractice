@@ -1,26 +1,23 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import index from '../views/index/index.vue'
+import routers from './routers.js'
 
 Vue.use(Router)
-const routes = new Router({
+const router = new Router({
   mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'index',
-      component: index
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: (resolve) => require(['../views/login/login.vue'], resolve)
-    },
-    {
-      path: '/404',
-      name: '404',
-      component: (resolve) => require(['../views/error/index.vue'], resolve)
-    }
-  ]
+  routes: routers
 })
-export default routes
+const whiteList = ['/login'] //免登录白名单，避免进入login页面死循环
+router.beforeEach(function(to, from, next) {
+  if (localStorage.getItem('token')) {
+    next();
+  } else {
+    if (whiteList.indexOf(to.path) !== -1) {
+      next()
+    } else {
+      next('/login')
+    }
+  }
+})
+
+export default router

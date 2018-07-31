@@ -60,6 +60,7 @@ export default {
       localStorage.setItem('token', '12312312312312312');
     },
     resetForm(formName) {
+      localStorage.removeItem('token');
       console.log(localStorage.getItem('token'));
       // this.$refs[formName].resetFields();
     }

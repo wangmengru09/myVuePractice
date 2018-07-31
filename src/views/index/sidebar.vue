@@ -1,5 +1,13 @@
 <template>
-    <el-menu default-active="1-1" class="el-menu-vertical-demo" :collapse="isCollapse">
+    <el-menu default-active="1-1" 
+      class="el-menu-vertical-demo" 
+      :collapse="isCollapse" 
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b">
+      <el-menu-item index="">
+        <i class="el-icon-menu" @click="handleOpen"></i>
+      </el-menu-item>
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
@@ -16,13 +24,25 @@
 
 <script>
 export default {
-  props: ['isCollapse'],
+  // props: ['isCollapse'],
   data() {
     return {
+      isCollapse: false
     };
   },
   methods: {
-    
+    handleOpen(key, keyPath) {
+      // this.isCollapse = false;
+      if (this.isCollapse) {
+        this.isCollapse = false;
+      } else {
+        this.isCollapse = true;
+      }
+    },
+    handleClose(key, keyPath) {
+      this.isCollapse = true;
+      console.log(key, keyPath);
+    }
   }
 }
 </script>
@@ -31,5 +51,9 @@ export default {
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
-}  
+  height: 100%;
+}
+.el-menu-item-group__title {
+  padding: 0;
+}
 </style>

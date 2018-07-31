@@ -6,28 +6,9 @@
     <div class="index_main">
       <sidebar :isCollapse='isCollapse'></sidebar>
       <div class="index_content">
-        <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-          <el-radio-button :label="false">展开</el-radio-button>
-          <el-radio-button :label="true">收起</el-radio-button>
-        </el-radio-group>
-        <!-- <el-table
-          :data="tableData"
-          style="width: 100%">
-          <el-table-column
-            prop="date"
-            label="日期"
-            width="180">
-          </el-table-column>
-          <el-table-column
-            prop="name"
-            label="姓名"
-            width="180">
-          </el-table-column>
-          <el-table-column
-            prop="address"
-            label="地址">
-          </el-table-column>
-        </el-table> -->
+        <div class="index_router">
+          <router-view></router-view>
+        </div>
       </div>  
     </div>
   </div>
@@ -62,27 +43,26 @@ export default {
     }
   },
   methods: {
-    handleOpen(key, keyPath) {
-      this.isCollapse = false;
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      this.isCollapse = true;
-      console.log(key, keyPath);
-    }
+    
   }
 }
 </script>
 
 <style>
+.index_wrap {
+  height: 100%;
+  width: 100%;
+}
 .index_main {
   display: table;
   width: 100%;
+  height: 100%;
   table-layout: fixed;
 }
 .index_main > ul {
   display: table-cell;
   padding-top: 80px;
+  /* height: 100%; */
 }
 .index_content {
   display: table-cell;
