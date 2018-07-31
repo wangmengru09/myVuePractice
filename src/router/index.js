@@ -10,6 +10,16 @@ const routes = new Router({
       path: '/',
       name: 'index',
       component: index
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: (resolve) => require(['../views/login/login.vue'], resolve)
+    },
+    {
+      path: '/404',
+      name: '404',
+      component: (resolve) => require(['../views/error/index.vue'], resolve)
     }
   ]
 })
