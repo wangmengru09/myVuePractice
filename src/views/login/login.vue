@@ -8,7 +8,7 @@
         <el-input type="password" v-model="ruleForm.password" auto-complete="off"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+        <el-button type="primary" @click="login()">登录</el-button>
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
@@ -16,53 +16,31 @@
 </template>
 
 <script>
+import {login} from '../../api/login.js'
+
 export default {
   data() {
-    // var validateUsername = (rule, value, callback) => {
-    //   if (value === '') {
-    //     callback(new Error('请输入用户名'));
-    //   } else {
-    //     callback();
-    //   }
-    // };
-    // var validatePassword = (rule, value, callback) => {
-    //   if (value === '') {
-    //     callback(new Error('请输入密码'));
-    //   } else {
-    //     callback();
-    //   }
-    // };
     return {
       ruleForm: {
         username: "",
         password: ""
       }
-      // rules: {
-      //   username: [
-      //     { validator: validateUsername, trigger: 'blur' }
-      //   ],
-      //   password: [
-      //     { validator: validatePassword, trigger: 'blur' }
-      //   ]
-      // }
     };
   },
   methods: {
-    submitForm(formName) {
-      // this.$refs[formName].validate(valid => {
-      //   if (valid) {
-      //     alert("submit!");
-      //   } else {
-      //     console.log("error submit!!");
-      //     return false;
-      //   }
-      // });
+    login(formName) {
+      let _this = this;
       localStorage.setItem('token', '12312312312312312');
+      // login(this.ruleForm).then(function(res) {
+      //   console.log(res);
+      //   if (res.data.code === 200) {
+          this.$router.push('/');
+      //   }
+      // })
     },
     resetForm(formName) {
       localStorage.removeItem('token');
       console.log(localStorage.getItem('token'));
-      // this.$refs[formName].resetFields();
     }
   }
 };

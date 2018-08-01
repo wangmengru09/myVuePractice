@@ -1,7 +1,9 @@
 <template>
   <div class="index_wrap">
     <div class="index_header">
-
+      <ul>
+        <li @click="logout()">退出</li>
+      </ul>
     </div>
     <div class="index_main">
       <sidebar :isCollapse='isCollapse'></sidebar>
@@ -43,7 +45,10 @@ export default {
     }
   },
   methods: {
-    
+    logout() {
+      localStorage.removeItem('token');
+      this.$router.push('/login');
+    }
   }
 }
 </script>
@@ -71,10 +76,17 @@ export default {
 .index_header {
   height: 80px;
   width: 100%;
+  line-height: 80px;
+  padding: 0 30px;
+  box-sizing: border-box;
   background-color: #1cc09f;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9;
+}
+.index_header li {
+  float: right;
+  cursor: pointer;
 }
 </style>
