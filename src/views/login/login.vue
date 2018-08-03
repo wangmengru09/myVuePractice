@@ -35,7 +35,7 @@ export default {
       //   console.log(res);
       //   if (res.data.code === 200) {
           this.$router.push('/');
-      //   }
+        // }
       // })
     },
     resetForm(formName) {
