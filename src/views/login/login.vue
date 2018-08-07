@@ -30,13 +30,13 @@ export default {
   methods: {
     login(formName) {
       let _this = this;
-      localStorage.setItem('token', '12312312312312312');
-      // login(this.ruleForm).then(function(res) {
-      //   console.log(res);
-      //   if (res.data.code === 200) {
-          this.$router.push('/');
-        // }
-      // })
+      login().then(function(res) {
+        console.log(res);
+        if (res.data.code === 200) {
+          localStorage.setItem('token', res.data.token);
+          _this.$router.push('/tables');
+        }
+      })
     },
     resetForm(formName) {
       localStorage.removeItem('token');

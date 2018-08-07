@@ -9,6 +9,7 @@
       <sidebar :isCollapse='isCollapse'></sidebar>
       <div class="index_content">
         <div class="index_router">
+          <!-- <tabs></tabs> -->
           <router-view></router-view>
         </div>
       </div>  
@@ -18,9 +19,11 @@
 
 <script>
 import sidebar from './sidebar.vue'
+import tabs from './tabs.vue'
 export default {
   components: {
-    sidebar
+    sidebar,
+    tabs
   },
   data() {
     return {
@@ -67,11 +70,15 @@ export default {
 .index_main > ul {
   display: table-cell;
   padding-top: 80px;
-  /* height: 100%; */
 }
 .index_content {
   display: table-cell;
   padding-top: 80px;
+}
+.index_router {
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 .index_header {
   height: 80px;

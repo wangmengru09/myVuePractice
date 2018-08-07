@@ -2,7 +2,7 @@ import axios from 'axios'
 import store from '../store/index.js'
 
 var instance = axios.create({
-  baseURL: 'https://192.168.0.176:8081/fsms',
+  baseURL: 'https://getlogin',
   timeout: 5000
 });
 

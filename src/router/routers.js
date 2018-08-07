@@ -7,7 +7,11 @@ const routers = [
     children: [
       {
         path: '/tables',
-        component: (resolve) => require(['../views/tables/index.vue'], resolve)
+        component: (resolve) => require(['@/views/tables/index.vue'], resolve)
+      },
+      {
+        path: '/list',
+        component: (resolve) => require(['@/views/list/index.vue'], resolve)
       }
     ]
   },
