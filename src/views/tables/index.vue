@@ -1,7 +1,16 @@
 <template>
   <div>
+    <header>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </header>
     <el-table
       :data="tableData"
+      border
       style="width: 100%">
       <el-table-column
         prop="date"
@@ -47,6 +56,23 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped lang="less">
+header {
+  height: 50px;
+  width: 100%;
+  background-color: red;
+  ul {
+    li {
+      width: 10px;
+      height: 10px;
+      background-color: #000;
+      border-radius: 50%;
+      float: left;
+      margin-right: 10px;
+    }
+  }
+}
+/deep/ .el-table__header-wrapper th {
+  background-color: #ccc;
+}
 </style>

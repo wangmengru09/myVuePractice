@@ -11,15 +11,20 @@
       <div class="collapse">
         <i class="el-icon-menu" @click="handleOpen"></i>
       </div>
-      <el-submenu index="1">
+      <el-submenu
+        v-for="(item, index) in Routers"
+        v-if="item.meta.hidden === false"
+        :key="index"
+        :index='item.path'>
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span slot="title">导航一</span>
+          <span slot="title">{{ item.meta.title }}</span>
         </template>
         <el-menu-item-group>
-          <el-menu-item index="/tables">表格</el-menu-item>
-          <el-menu-item index="/list">列表</el-menu-item>
-          <el-menu-item index="/">选项3</el-menu-item>
+          <el-menu-item
+            v-for="(el, i) in item.children"
+            :key="i"
+            :index="el.path">{{ el.meta.title }}</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
@@ -29,12 +34,14 @@
 export default {
   data() {
     return {
+      Routers: [],
       isCollapse: false,
       defaultActive: ''
     };
   },
   created() {
     this.defaultActive = localStorage.getItem("defaultActiveIndex");
+    this.Routers = JSON.parse(localStorage.getItem('Routers'))
   },
   methods: {
     handleOpen(key, keyPath) {

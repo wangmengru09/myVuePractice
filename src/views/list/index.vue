@@ -24,7 +24,7 @@
       <li>.</li>
       <li>.</li>
     </ul>
-    <div>
+    <!-- <div>
       <div class="heart_wrap">
         <div class="heart_left">
           <div class="left_top"></div>
@@ -35,7 +35,7 @@
           <div class="right_bottom"></div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -45,7 +45,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style>
 .List > ul {
   width: 300px;
   padding: 20px;
