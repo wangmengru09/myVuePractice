@@ -3,9 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from '../src/store/index'
 import ElementUI from 'element-ui'
+import './directive/index'
 import './assets/element-#1CC09F/index.css';
 import './Mock/mock'
+import 'babel-polyfill'
+import 'splitpanes/dist/splitpanes.css'
+import splitPane from 'vue-splitpane'
+import $ from 'jquery'
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
@@ -14,6 +20,10 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  store,
+  components: {
+    splitPane,
+    App
+  },
   template: '<App/>'
 })

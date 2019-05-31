@@ -24,6 +24,14 @@ const routers = [
       {
         path: '/list', meta: { title: '列表', hidden: false, name: '2' },
         component: (resolve) => require(['@/views/list/index.vue'], resolve)
+      },
+      {
+        path: '/form', meta: { title: '表单', hidden: false, name: '3' },
+        component: (resolve) => require(['@/views/form/index.vue'], resolve)
+      },
+      {
+        path: '/radio', meta: { title: '单选框', hidden: false, name: '4' },
+        component: (resolve) => require(['@/views/radios/index.vue'], resolve)
       }
     ]
   },

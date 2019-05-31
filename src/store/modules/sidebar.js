@@ -6,13 +6,13 @@ const getters = {
   sidebar: state => state
 }
 
-const mutation = {
+const mutations = {
   SET_DefaultActiveIndex: (state, defaultActiveIndex) => {
     state.defaultActiveIndex = defaultActiveIndex;
   }
 }
 
-const action = {
+const actions = {
   GetDefaultActiveIndex({commit}, token) {
     commit("SET_DefaultActiveIndex", token)
   }
@@ -20,7 +20,7 @@ const action = {
 
 const sidebar = {
   state,
-  mutation,
-  action,
+  mutations,
+  actions,
   getters
 }

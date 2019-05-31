@@ -1,106 +1,311 @@
 <template>
-  <div class="List">
-    <ul>
-      <li>居</li>
-      <li>老</li>
-      <li>师</li>
-      <li>好</li>
-      <li>帅</li>
-      <li>哇</li>
-      <li>*^_^*</li>
-      <li>.</li>
-      <li>.</li>
-      <li>.</li>
-      <li>眼</li>
-      <li>睛</li>
-      <li>超</li>
-      <li>漂</li>
-      <li>亮</li>
-      <li>的</li>
-      <li>.</li>
-      <li>.</li>
-      <li>.</li>
-      <li>.</li>
-      <li>.</li>
-      <li>.</li>
-    </ul>
-    <!-- <div>
-      <div class="heart_wrap">
-        <div class="heart_left">
-          <div class="left_top"></div>
-          <div class="left_bottom"></div>
-        </div>
-        <div class="heart_right">
-          <div class="right_top"></div>
-          <div class="right_bottom"></div>
-        </div>
-      </div>
-    </div> -->
+  <div class="boxWrap" v-focus>
+    <!-- <splitpanes class="default-theme" style="height:100%">
+      <span splitpanes-default="65">
+        <el-table
+          border
+          stripe
+          :data="tableData"
+          style="width: 100%">
+          <el-table-column
+            prop="date"
+            label="日期"
+            width="180"
+            fixed>
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+        </el-table>
+      </span>
+      <span splitpanes-default="35">
+        <el-table
+          border
+          stripe
+          :data="tableData"
+          style="width: 100%">
+          <el-table-column
+            prop="date"
+            label="日期"
+            width="180"
+            fixed>
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+        </el-table>
+      </span>
+    </splitpanes> -->
+    <split-pane :min-percent='20' :default-percent='30' split="vertical">
+      <template slot="paneL">
+        <el-table
+          border
+          stripe
+          :data="tableData"
+          :span-method="objectSpanMethod"
+          style="width: 100%">
+          <el-table-column
+            prop="date"
+            label="日期"
+            width="180"
+            fixed>
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+        </el-table>
+      </template>
+      <template slot="paneR">
+        <el-table
+          border
+          stripe
+          :data="tableData"
+          style="width: 100%">
+          <el-table-column
+            prop="date"
+            label="日期"
+            width="180"
+            fixed>
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址">
+          </el-table-column>
+        </el-table>
+      </template>
+    </split-pane>
   </div>
 </template>
 
 <script>
-export default {
+// import Splitpanes from 'splitpanes'
+import splitPane from 'vue-splitpane'
 
+export default {
+  components: {
+    splitPane
+  },
+  data() {
+    return {
+      tableData: [{
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '1518 弄',
+        rowspan: 3,
+      }, {
+        date: '2016-05-04',
+        name: '王小虎',
+        address: '1517 弄',
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '1519 弄',
+      }, {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '1516 弄',
+        rowspan: 2,
+      },
+      {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '1516 弄',
+      },
+      {
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '1516 弄',
+        rowspan: -1,
+      }]
+    }
+  },
+  created() {
+  },
+  methods: {
+    objectSpanMethod({ row, column, rowIndex, columnIndex }) {
+      console.log(row)
+      if (columnIndex === 1 && row.rowspan !== -1) {
+        return [row.rowspan || 0, row.rowspan ? 1 : 0]
+        // return [2, 1]
+      }
+    }
+  }
 }
 </script>
 
-<style>
-.List > ul {
-  width: 300px;
+<style scoped>
+.boxWrap {
+  width: 100%;
+  height: 100%;
+}
+.splitpanes__pane {
   padding: 20px;
-  box-sizing: border-box;
-  vertical-align: top;
-}
-.List > ul li {
-  margin: 0 auto;
-}
-.List > ul li {
-  margin-top: 10px;
-  display: table;
-}
-.List > ul li:first-child {
-  margin-top: 0;
-}
-.List > ul, .List > div {
-  display: table-cell;
-}
-.heart_wrap {
-  width: 200px;
-  height: 200px;
-  margin-top: 200px;
-  /* border: 1px solid #000; */
-}
-.heart_wrap > div {
-  float: left;
-}
-.heart_left > div,
-.heart_right > div {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-}
-.heart_left {
-  transform: rotate(-45deg) translate(21px, 21px);
-}
-.heart_right {
-  transform: rotate(45deg);
-}
-.left_top, .right_top {
-  border-radius: 50% 50% 0 0;
-}
-.left_bottom {
-  background-color: transparent;
-}
-@keyframes translate {
-  0% {
-    transform: scale(0.05);
-  }
-  100% {
-    transform: scale(1.3);
-  }
-}
-.heart_wrap {
-  animation: translate 1s ease-in-out infinite alternate;
 }
 </style>

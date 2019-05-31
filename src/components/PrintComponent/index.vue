@@ -1,23 +1,26 @@
 <template>
   <div
-    v-show="false"
+    v-show="true"
     id="printHtml">
-    <object
-      id="LODOP_OB"
-      classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA"
-      width="800"
-      height="400">
-      <embed
-        id="LODOP_EM"
-        type="pplication/x-print-lodop"
-        width="820"
-        height="450"
-        pluginspage="install_lodop32.exe">
-    </object>
+    <div>
+      <object
+        id="LODOP_OB"
+        classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA"
+        width="800px"
+        height="400px">
+        <embed
+          id="LODOP_EM"
+          type="pplication/x-print-lodop"
+          width="820px"
+          height="450px"
+          pluginspage="install_lodop32.exe">
+      </object>
+    </div>
     <textarea
       id="textarea"
       rows="10"
       cols="98" />
+      <!-- <iframe id="previewHtml" style="width:800px;height:600px;"></iframe> -->
   </div>
 </template>
 
@@ -41,6 +44,11 @@ export default {
     }
   },
   created() {
+    // document.getElementById('textarea').value = ''
+    // this.LODOP = getLodop(document.getElementById('LODOP_OB'), document.getElementById('LODOP_EM'))
+    // this.LODOP.PRINT_INIT('PIM-打印控件')
+    // this.LODOP.SET_SHOW_MODE('DESIGN_IN_BROWSE', 1)
+    // this.LODOP.PRINT_DESIGN()
   },
   methods: {
     // 打印设计，可自定义打印模板
@@ -48,7 +56,9 @@ export default {
       document.getElementById('textarea').value = ''
       this.LODOP = getLodop(document.getElementById('LODOP_OB'), document.getElementById('LODOP_EM'))
       this.LODOP.PRINT_INIT('PIM-打印控件')
-      this.LODOP.PRINT_DESIGN()
+      this.LODOP.SET_SHOW_MODE('DESIGN_IN_BROWSE', true)
+      // this.LODOP.ADD_PRINT_IMAGE(10,10,300,160, '<img src="C:\Users\wmr\Pictures\Camera Roll\pinkGirl.jpg" />')
+      this.LODOP.PRINT_DESIGN('previewHtml')
     },
     // 通过GET_VALUE，获取base64格式的自定义打印模板的内容
     getProgramData() {
@@ -71,7 +81,9 @@ export default {
       this.list.forEach(item => {
         this.LODOP.SET_PRINT_STYLEA(item.key, 'CONTENT', item.value)
       })
-      this.LODOP.PREVIEW()
+      this.LODOP.SET_SHOW_MODE('HIDE_PBUTTIN_PREVIEW', 1)
+      this.LODOP.PREVIEW('previewHtml')
+      // this.LODOP.PREVIEW()
     }
   }
 }

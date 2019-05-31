@@ -5,13 +5,13 @@ const getters = {
   user: state => state.token
 }
 
-const mutation = {
+const mutations = {
   SET_TOKEN: (state, token) => {
     state.token = token;
   }
 }
 
-const action = {
+const actions = {
   GetToken({commit}, token) {
     commit('SET_TOKEN', token);
   }
@@ -20,8 +20,8 @@ const action = {
 const user = {
   state,
   getters,
-  mutation,
-  action
+  mutations,
+  actions
 }
 
 export default user
