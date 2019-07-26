@@ -11,7 +11,8 @@ import './Mock/mock'
 import 'babel-polyfill'
 import 'splitpanes/dist/splitpanes.css'
 import splitPane from 'vue-splitpane'
-import $ from 'jquery'
+import VueDraggableResizable from 'vue-draggable-resizable'
+import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
@@ -23,7 +24,8 @@ new Vue({
   store,
   components: {
     splitPane,
-    App
+    App,
+    VueDraggableResizable
   },
   template: '<App/>'
 })
